@@ -1,5 +1,5 @@
 [loadbalancer]
-lb01
+udemy_ubuntu
 
 [webserver]
 app01

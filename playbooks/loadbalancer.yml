@@ -1,0 +1,12 @@
+---
+  - hosts: control
+    tasks:
+      - name: verify the package nginx exists
+        command: docker exec udemy_ubuntu /bin/bash -l -c "nginx -V"
+        register: result_a
+
+      - name: install nginx
+        command: docker exec udemy_ubuntu /bin/bash -l -c "echo Y | apt install nginx"
+        when: result_a.stdout.find('command not found') != -1
+
+                
